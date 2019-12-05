@@ -40,23 +40,6 @@
             <column name="title" type="varchar(50)"></column>
         </createTable>
 
-        <createTable tableName="discounts">
-            <column name="id" type="BIGINT" autoIncrement="true">
-                <constraints primaryKey="true" primaryKeyName="discount_id" nullable="false"></constraints>
-            </column>
-            <column name="title" type="varchar(50)"></column>
-            <column name="value" type="tinyint"></column>
-        </createTable>
-
-        <createTable tableName="vendore_codes">
-            <column name="id" type="BIGINT" autoIncrement="true">
-                <constraints primaryKey="true" primaryKeyName="brand_id" nullable="false"></constraints>
-            </column>
-            <column name="title" type="varchar(50)">
-                <constraints unique="true"/>
-            </column>
-        </createTable>
-
         <createTable tableName="picture_data">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" primaryKeyName="brand_id" nullable="false"></constraints>
@@ -79,13 +62,7 @@
             <column name="brand" type="BIGINT">
                 <constraints foreignKeyName="brand_id" referencedTableName="brands" referencedColumnNames="id"></constraints>
             </column>
-            <column name="vendor_code" type="BIGINT">
-                <constraints foreignKeyName="vendor_code_id" referencedTableName="vendor_codes" referencedColumnNames="id"></constraints>
-            </column>
             <column name="price" type="float"/>
-            <column name="discount" type="BIGINT">
-                <constraints foreignKeyName="category_id" referencedTableName="categories" referencedColumnNames="id"></constraints>
-            </column>
             <column name="amount" type="int"/>
         </createTable>
     </changeSet>
