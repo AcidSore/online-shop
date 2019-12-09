@@ -16,11 +16,8 @@ public class User implements Serializable {
     @Column(name = "id", nullable =false)
     private Long id;
 
-    @Column(name = "name",nullable = false)
+    @Column(name = "user_name",unique = true, nullable = false)
     private String userName;
-
-    @Column(name = "login", nullable = false)
-    private String login;
 
     @Column(name = "password", nullable = false)
     private String password;
@@ -46,11 +43,9 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String userName, String login, String password, String email ) {
+    public User(String userName, String password) {
         this.userName = userName;
-        this.login = login;
         this.password = password;
-        this.email = email;
     }
 
     public User(String userName, String password, String email, List<Role> roles) {
@@ -59,6 +54,7 @@ public class User implements Serializable {
         this.email = email;
         this.roles = roles;
     }
+
 
     @Override
     public String toString() {

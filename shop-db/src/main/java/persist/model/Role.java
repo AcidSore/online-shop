@@ -18,8 +18,8 @@ public class Role implements Serializable {
     @Column(name = "id")
     private Long id;
 
-//    @Column(name = "name", unique = true, nullable = false)
-//    private String name;
+    @Column(name = "title", unique = true, nullable = false)
+    private String title;
 
     @ManyToMany(mappedBy = "roles")
     private Set<User> users;

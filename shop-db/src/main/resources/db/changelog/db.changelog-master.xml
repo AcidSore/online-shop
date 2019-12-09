@@ -15,11 +15,15 @@
 
     <include file="changelogs/dbAddTables.xml"  relativeToChangelogFile="true" />
 
-    <changeSet id="2" author="AcidSore">
-        <tagDatabase tag=""/>
+    <changeSet id="5" author="AcidSore">
+        <tagDatabase tag="insert"/>
     </changeSet>
 
+    <include file="changelogs/dbInsertData.xml"  relativeToChangelogFile="true" />
 
+    <changeSet id="7" author="AcidSore">
+        <tagDatabase tag="insert"/>
+    </changeSet>
 
 </databaseChangeLog>
 
