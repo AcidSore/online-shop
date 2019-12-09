@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" th:href="@{hbootadmin.net/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{bootadmin.net/css/fontawesome-all.min.css}">
+    <link rel="stylesheet" th:href="@{bootadmin.net/css/datatables.min.css}">
+    <link rel="stylesheet" th:href="@{bootadmin.net/css/fullcalendar.min.css}">
+    <link rel="stylesheet" th:href="@{bootadmin.net/css/bootadmin.min.css}">
+
+    <title>Orders data</title>
+</head>
+<body class="bg-light">
+<h2 class="mb-4">Datatables</h2>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <table id="example" class="table table-hover" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Product title</th>
+                <th>Amount</th>
+                <th>User</th>
+                <th class="actions">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each = "order: ${orders}">
+                <td th:text="${order.id}"></td>
+                <td th:text="${order.date}"></td>
+                <td th:text="${order.product.title}"></td>
+                <td th:text="${order.amount}"></td>
+                <td th:text="${order.user.name}"></td>
+                <td>
+                    <a th:href="@{order/{id}/edit(id=${order.id})}" class="btn btn-icon btn-pill btn-primary" data-toggle="tooltip" title="Edit"><i class="fa fa-fw fa-edit"></i></a>
+                    <a href="@{product/{id}/delete(id=${prod.id})}" class="btn btn-icon btn-pill btn-danger" data-toggle="tooltip" title="Delete"><i class="fa fa-fw fa-trash"></i></a>
+                    <a th:href="@{order/{id}/edit(id=${order.id})}" class="btn btn-icon btn-pill btn-danger" data-toggle="tooltip" title="Delete"><i class="fa fa-fw fa-trash"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+</div>
+
+<script th:replace="fragments/footer :: scripts"></script>
+<script th:src="@{/js/datatables.min.js}"></script>
+<script>
+    $(document).ready(function () {
+        $('#orders').DataTable();
+    });
+</script>
+
+</body>
+</html>

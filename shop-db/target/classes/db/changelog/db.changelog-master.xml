@@ -9,39 +9,21 @@
         <runningAs username="root"/>
     </preConditions>
 
-    <changeSet id="1" author="AcidSore" runOnChange="true">
-        <createTable tableName="roles">
-            <column name="id" type="int" autoIncrement="true" >
-                <constraints primaryKey="true" primaryKeyName="rolesPk" nullable="false"></constraints>
-            </column>
-            <column name="title" type="varchar(30)"></column>
-        </createTable>
-
-        <createTable tableName="users">
-            <column name="id" type="int" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false" primaryKeyName="usersPK"></constraints>
-            </column>
-            <column name="login" type="varchar(50)"></column>
-            <column name="password" type="varchar(50)"></column>
-            <column name="name" type="varchar(50)"></column>
-            <column name="role" type="int">
-                <constraints foreignKeyName="roles-id" referencedTableName="roles" referencedColumnNames="id" />
-            </column>
-        </createTable>
+    <changeSet id="0" author="AcidSore">
+        <tagDatabase tag="init"/>
     </changeSet>
 
-    <include file="changelogs/changelog-v1.xml"  relativeToChangelogFile="true" />
+    <include file="changelogs/dbAddTables.xml"  relativeToChangelogFile="true" />
 
-    <changeSet id="2" author="AcidSore">
-        <tagDatabase tag="v1"/>
+    <changeSet id="5" author="AcidSore">
+        <tagDatabase tag="insert"/>
     </changeSet>
 
-    <include file="changelogs/changelog-v2-dropVendorCode.xml" relativeToChangelogFile="true"/>
+    <include file="changelogs/dbInsertData.xml"  relativeToChangelogFile="true" />
 
-    <changeSet id="2" author="AcidSore">
-        <tagDatabase tag="v2"/>
+    <changeSet id="7" author="AcidSore">
+        <tagDatabase tag="insert"/>
     </changeSet>
-
 
 </databaseChangeLog>
 

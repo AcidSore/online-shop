@@ -28,16 +28,8 @@ public class Product implements Serializable {
     @JoinColumn(name = "brand_id")
     private Brand brand;
 
-    @ManyToOne
-    @JoinColumn(name = "vendor_code_id")
-    private VendorCode vendorCode;
-
     @Column(name = "price")
     private BigDecimal price;
-
-    @ManyToOne
-    @JoinColumn(name = "discount_id")
-    private Discount discount;
 
     @Column(name = "amount")
     private Integer amount;
